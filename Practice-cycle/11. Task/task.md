@@ -38,3 +38,34 @@ Output:
 * `for` dövrləri və `substring()` metodundan istifadə tövsiyə olunur.
 * `Set` və `Map` **istifadə olunmamalıdır**.
 
+```
+function findLongestRepeatedSubstring(str) {
+  let maxLen = 0;
+  let result = "";
+
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length; j++) {
+      let len = 0;
+      // Uzunluq artıraraq substringləri yoxlayırıq
+      while (
+        str[i + len] !== undefined &&
+        str[j + len] !== undefined &&
+        str[i + len] === str[j + len]
+      ) {
+        len++;
+        // Növbəti simvolları yoxlayırıq
+      }
+      // Ən uzununu yadda saxlayırıq
+      if (len > maxLen) {
+        maxLen = len;
+        result = str.substr(i, len);
+      }
+    }
+  }
+  return result;
+}
+
+// Nümunə yoxlama
+const input = "abcabcdabc";
+console.log(findLongestRepeatedSubstring(input)); // "abc"
+```
