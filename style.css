@@ -1,0 +1,13 @@
+.isActive{
+    background-color: rgb(249, 174, 249);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100%;
+    justify-content: center;
+    height: 400px;
+    border-radius: 12px;
+    border: none;
+    margin: 20px 0;
+    color: blanchedalmond;
+}
