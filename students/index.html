@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+    <title>Studens</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Tələbə İdarəetmə Sistemi</h1>
+            <p>JSONPlaceholder API ilə CRUD əməliyyatları</p>
+        </div>
+
+        <div class="main-content">
+            <div class="stats" id="statsContainer">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalStudents">0</div>
+                    <div class="stat-label">Ümumi Tələbə</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="searchResults">0</div>
+                    <div class="stat-label">Axtarış Nəticəsi</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Tələbə axtar (ad, email, şəhər...)">
+                </div>
+                <button class="btn btn-primary" onclick="openAddModal()">
+                    ➕ Yeni Tələbə Əlavə Et
+                </button>
+                <button class="btn btn-success" onclick="loadStudents()">
+                    🔄 Yenilə
+                </button>
+            </div>
+
+            <div id="loadingContainer" class="loading">
+                <div class="spinner"></div>
+                <p>Tələbələr yüklənir...</p>
+            </div>
+
+            <div id="studentsContainer" class="students-grid"></div>
+
+            <div id="noResults" class="no-results" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>Heç bir tələbə tapılmadı</h3>
+                <p>Axtarış kriteriyalarınızı dəyişdirməyi cəhd edin</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tələbə Əlavə Et/Redaktə Et Modal -->
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modalTitle">Yeni Tələbə Əlavə Et</h2>
+            </div>
+            <div class="modal-body">
+                <form id="studentForm">
+                    <div class="form-group">
+                        <label for="studentName">Ad Soyad *</label>
+                        <input type="text" id="studentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentEmail">Email *</label>
+                        <input type="email" id="studentEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentPhone">Telefon</label>
+                        <input type="tel" id="studentPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentWebsite">Vebsayt</label>
+                        <input type="url" id="studentWebsite">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentCity">Şəhər</label>
+                        <input type="text" id="studentCity">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentCompany">Təşkilat</label>
+                        <input type="text" id="studentCompany">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn" onclick="closeModal()">❌ Ləğv et</button>
+                        <button type="submit" class="btn btn-primary" id="saveBtn">💾 Saxla</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
